@@ -34,5 +34,6 @@ def connectURI(server, port):
     return strURL 
 
 #호출
+#중지점(Break Point)
 print(connectURI("credu.com","80"))
 print(connectURI(port="80", server="credu.com"))
