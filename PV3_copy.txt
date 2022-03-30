@@ -1,0 +1,6 @@
+error 100: error aaa
+
+RegQueryValueEx(C:\Program Files (x86)\AhnLab\APC2\Policy Agent) : 0 error 100: error aaa
+
+error 100: error aaa
+
