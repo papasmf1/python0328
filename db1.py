@@ -20,7 +20,16 @@ datalist = (("tom","010-333"),("dsp","010-555"))
 cur.executemany("insert into PhoneBook values (?, ?);", datalist)
 
 #검색하기
+#블럭으로 주석: ctrl + / 
+# cur.execute("select * from PhoneBook;")
+# for row in cur:
+#     print(row)
 cur.execute("select * from PhoneBook;")
-for row in cur:
-    print(row)
+print("--fetchone()--")
+print(cur.fetchone())
+print("--fetchmany(2)--")
+print(cur.fetchmany(2))
+print("--fetchall()--")
+cur.execute("select * from PhoneBook;")
+print(cur.fetchall())
 
