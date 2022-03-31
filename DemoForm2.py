@@ -2,6 +2,10 @@
 import sys 
 from PyQt5.QtWidgets import * 
 from PyQt5 import uic 
+#웹크롤링
+import urllib.request 
+from bs4 import BeautifulSoup 
+
 
 #디자인 파일을 로딩
 form_class = uic.loadUiType("DemoForm2.ui")[0]
@@ -15,7 +19,16 @@ class DemoForm(QMainWindow, form_class):
         self.label.setText("첫번째 Qt데모")
     #슬롯메서드정의
     def firstClick(self):
-        self.label.setText("첫번째 버튼")    
+        f = open("c:\\work\\webtoon.txt", "a+", encoding="utf-8")
+        data = urllib.request.urlopen('http://comic.naver.com/webtoon/list.nhn?titleId=20853&weekday=fri')
+        soup = BeautifulSoup(data, 'html.parser')
+        cartoons = soup.find_all('td', class_='title')
+        for item in cartoons:
+            title = item.find('a').text
+            print(title)
+            f.write(title + "\n")
+        self.label.setText("네이버 웹툰 리스트 완료")    
+        f.close() 
     def secondClick(self):
         self.label.setText("두번째 버튼~~")    
     def thirdClick(self):
