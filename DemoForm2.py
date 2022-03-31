@@ -6,7 +6,6 @@ from PyQt5 import uic
 import urllib.request 
 from bs4 import BeautifulSoup 
 
-
 #디자인 파일을 로딩
 form_class = uic.loadUiType("DemoForm2.ui")[0]
 
