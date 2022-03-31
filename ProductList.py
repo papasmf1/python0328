@@ -71,6 +71,9 @@ class Window(QMainWindow, form_class):
         con.commit()  
 
     def getProduct(self):
+        #검색 결과를 보여주기전에 기존 컨텐트를 삭제(헤더는 제외)
+        self.tableWidget.clearContents()
+
         cur.execute("select * from Products;") 
         #행숫자 카운트 
         row = 0 
